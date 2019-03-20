@@ -1,0 +1,29 @@
+#!/bin/sh
+
+if [ $# -lt 3 ]; then
+	echo "Usage: fcopy [destiantion directory] [destination filename] [source file path]"
+	exit 1
+fi
+
+dirname=$1
+if ! [ -d $1 ]; then
+	echo "Directory \"$dirname\" does not exist."
+	exit 1
+fi
+
+filename=$2
+if [ -f $dirname/$filename ]; then
+	echo -n "\"$filename\" already exists at \"$dirname\". Override? [Y | N] "
+        read override
+
+        if [ $override = "Y" ] || [ $override = "y" ]; then
+                echo "Override."
+        else
+                echo "Not override."
+                exit 1
+        fi
+fi
+
+sourcefile=$3
+
+cp $sourcefile $dirname/$filename

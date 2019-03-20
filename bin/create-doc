@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+	echo "Usage: create-doc [directory]"
+	exit 1
+fi
+
+DIR="$(dirname "$(readlink -f "$0")")"
+cd $DIR
+
+./fcopy $1 README.md ../template/README.md

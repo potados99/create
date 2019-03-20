@@ -1,0 +1,87 @@
+#!/bin/bash
+# Easy creation for experimental projects.
+
+function usage() {
+        echo "Usage: create [options] [project name]"
+        exit 1
+}
+
+if [ $# -eq 0 ]; then
+	usage
+fi
+
+dirname_set=0
+options=()
+index=0
+
+# Process arguments
+for var in $@
+do
+	if [ ${var:0:1} = "-" ]; then
+		op_str=${var#"-"}
+		for (( i=0; i<${#op_str}; i++ )); do
+			options[index++]="${op_str:$i:1}"
+		done
+	else
+		if [ $dirname_set -eq 1 ]; then
+			echo "Too many arguments."
+			usage
+		else
+			dirname_set=1
+			dirname=$var
+		fi
+	fi
+done
+
+if [ $dirname_set -eq 0 ]; then
+	echo "Too less arguments."
+	usage
+fi
+
+dir_exists=0
+
+if [ -d $dirname ]; then
+        echo "Directory \"$dirname\" already exist."
+	dir_exists=1
+fi
+
+# Remove duplicated options
+eval processed_options=($(printf "%s\n" ${options[@]} | sort -u))
+
+DIR="$(dirname "$(readlink -f "$0")")"
+cd $DIR
+
+# Now we got options at $processed_options, directory name at $dirname.
+
+if [ $dir_exists -ne 1 ]; then
+	echo "Creating directory \"$dirname\""
+	mkdir $dirname
+fi
+
+available_options=(d m c)
+
+for op in ${processed_options[@]}
+do
+	case $op in
+	d)
+	echo "Creating README.md at \"$dirname\""
+	./create-doc $dirname
+	;;
+
+	m)
+	echo "Creating Makefile at \"$dirname\""
+	./create-makefile $dirname
+	;;
+
+	c)
+	echo "Creating main.c at \"$dirname\""
+	./create-main $dirname
+	;;
+
+	*)
+	echo "Invalid option: $op"
+	;;
+	esac
+done
+
+
