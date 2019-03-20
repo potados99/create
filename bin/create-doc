@@ -6,6 +6,5 @@ if [ $# -eq 0 ]; then
 fi
 
 DIR="$(dirname "$(readlink -f "$0")")"
-cd $DIR
 
-./fcopy $1 README.md ../template/README.md
+$DIR/fcopy $1 README.md $DIR/../template/README.md

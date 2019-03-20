@@ -49,7 +49,6 @@ fi
 eval processed_options=($(printf "%s\n" ${options[@]} | sort -u))
 
 DIR="$(dirname "$(readlink -f "$0")")"
-cd $DIR
 
 # Now we got options at $processed_options, directory name at $dirname.
 
@@ -65,17 +64,17 @@ do
 	case $op in
 	d)
 	echo "Creating README.md at \"$dirname\""
-	./create-doc $dirname
+	$DIR/create-doc $dirname
 	;;
 
 	m)
 	echo "Creating Makefile at \"$dirname\""
-	./create-makefile $dirname
+	$DIR/create-makefile $dirname
 	;;
 
 	c)
 	echo "Creating main.c at \"$dirname\""
-	./create-main $dirname
+	$DIR/create-main $dirname
 	;;
 
 	*)

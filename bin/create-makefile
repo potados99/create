@@ -6,6 +6,5 @@ if [ $# -eq 0 ]; then
 fi
 
 DIR="$(dirname "$(readlink -f "$0")")"
-cd $DIR
 
-./fcopy $1 Makefile ../template/Makefile
+$DIR/fcopy $1 Makefile $DIR/../template/Makefile
