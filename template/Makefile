@@ -9,11 +9,11 @@ SOURCE = $(wildcard *.c)
 OBJECT = $(SOURCE:.c=.o)
 
 $(TARGET): $(OBJECT)
-        $(LINK.c) -o $@ $^
+	$(LINK.c) -o $@ $^
 
 # Object file wildcard rule.
 %.o: %.c
-        $(COMPILE.c) $<
+	$(COMPILE.c) $<
 
 clean:
-        rm *.o $(TARGET)*
+	rm *.o $(TARGET)*
