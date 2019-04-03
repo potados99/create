@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Easy creation for experimental projects.
 
 usage() {
