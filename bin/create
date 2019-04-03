@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 # Easy creation for experimental projects.
 
-function usage() {
+usage() {
         echo "Usage: create [options] [project name]"
         exit 1
 }
@@ -48,7 +48,7 @@ fi
 # Remove duplicated options
 eval processed_options=($(printf "%s\n" ${options[@]} | sort -u))
 
-DIR="$(dirname "$(readlink -f "$0")")"
+DIR="$(dirname "$(realpath "$0")")"
 
 # Now we got options at $processed_options, directory name at $dirname.
 
