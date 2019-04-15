@@ -7,4 +7,6 @@ fi
 
 DIR="$(dirname "$(realpath "$0")")"
 
-$DIR/fcopy $1 main.c $DIR/../template/main.c
+mkdir -p $1/src
+mkdir -p $1/include
+$DIR/fcopy $1/src main.c $DIR/../template/main.c

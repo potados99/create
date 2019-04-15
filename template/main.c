@@ -3,9 +3,8 @@
 #include <string.h>
 
 int main(int argc, const char * argv[]) {
-        // insert code here...
-        printf("Hello, world!\n");
-
-        return 0;
-
+	// insert code here...
+	printf("Hello, world!\n");
+	
+	return 0;
 }
