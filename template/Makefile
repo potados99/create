@@ -4,16 +4,16 @@
 
 TARGET		:= a.out
 
-CC 			:= gcc
-CFLAGS 		:= -Wall
-LIB			:=
+CC		:= gcc
+CFLAGS		:= -Wall
+LIB		:=
 
-TARGET_DIR 	:= bin
-SRC_DIR     := src
-INC_DIR     := include
+TARGET_DIR	:= bin
+SRC_DIR		:= src
+INC_DIR		:= include
 OBJ_DIR		:= build
-SRC_EXT     := c
-OBJ_EXT     := o
+SRC_EXT		:= c
+OBJ_EXT		:= o
 
 #################################################
 
