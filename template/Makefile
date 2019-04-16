@@ -39,7 +39,7 @@ clean:
 $(TARGET): $(OBJECTS)
 	@echo [$@]
 	$(LINK.c) -o $(TARGET_DIR)/$(TARGET) $^ $(LIB)
-	@ln -s $(TARGET_DIR)/$(TARGET) ./
+	@ln -sf $(TARGET_DIR)/$(TARGET) ./
 
 # COMPILE
 $(OBJ_DIR)/%.$(OBJ_EXT): $(SRC_DIR)/%.$(SRC_EXT)
