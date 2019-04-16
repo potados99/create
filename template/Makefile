@@ -2,7 +2,8 @@
 
 # Makefile boilerplate version 0.1.0 (20190416)
 
-TARGET		:= a.out
+TARGET_INITIAL	:= THISISINITIALTARGET
+TARGET		:= $(TARGET_INITIAL)
 
 CC		:= gcc
 CFLAGS		:= -Wall
@@ -44,4 +45,4 @@ $(TARGET): $(OBJECTS)
 # COMPILE
 $(OBJ_DIR)/%.$(OBJ_EXT): $(SRC_DIR)/%.$(SRC_EXT)
 	@echo [$@]
-	$(CC) $(CFLAGS) -c -o $@ $< -l$(INC_DIR)
+	$(CC) $(CFLAGS) -c -o $@ $< -I$(INC_DIR)

@@ -2,4 +2,6 @@
 
 read -p "Enter target name: " name
 
-sed -i "/TARGET\t\t:= /s/.*/TARGET\t\t:= $name/g" Makefile
+sed -i "" "s/THISISINITIALTARGET/$name/g" Makefile
+
+rm ./config
