@@ -3,6 +3,11 @@
 
 usage() {
         echo "Usage: create [options] [project name]"
+		echo "	Options:"
+		echo "		-d		Create README.md"
+		echo "		-m		Create Makefile"
+		echo "		-c		Create src, include directory and main.c"
+		echo "		-t		Create test, only when -c is enabled."
         exit 1
 }
 
@@ -49,11 +54,17 @@ for opt in "${opts[@]}"; do
 		;;
 
 		c)
+		if [[ "${opts[@]}" == *t* ]]; then
+			continue
+		fi
 		echo "Creating main.c at \"$dirname\""
 		$DIR/create-main $dirname
 		;;
 
 		t)
+		if [[ "${opts[@]}" != *c* ]]; then
+			continue
+		fi
 		echo "Creating test at \"$dirname\""
 		$DIR/create-test $dirname
 		;;

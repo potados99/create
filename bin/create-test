@@ -12,3 +12,4 @@ mkdir -p $1/include
 
 $DIR/fcopy $1/include test.h $DIR/../template/test.h
 $DIR/fcopy $1/src test.c $DIR/../template/test.c
+$DIR/fcopy $1/src main.c $DIR/../template/main_test.c
