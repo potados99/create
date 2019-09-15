@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+	echo "Usage: create-test [directory]"
+	exit 1
+fi
+
+DIR="$(dirname "$realpath "$0")")"
+
+mkdir -p $1/src
+mkdir -p $1/include
+
+$DIR/fcopy $1/include test.h $DIR/../template/test.h
+$DIR/fcopy $1/src test.c $DIR/../template/test.c

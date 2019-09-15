@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -eq 0 ]; then
 	echo "Usage: create-main [directory]"
@@ -9,4 +9,5 @@ DIR="$(dirname "$(realpath "$0")")"
 
 mkdir -p $1/src
 mkdir -p $1/include
+
 $DIR/fcopy $1/src main.c $DIR/../template/main.c

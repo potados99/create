@@ -1,6 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 
-read -p "Enter target name: " name
+if [ $# -eq 0 ]; then
+	read -p "Enter target name: " name
+else
+	name=$1
+fi
 
 sed -i "" "s/THISISINITIALTARGET/$name/g" Makefile
 
