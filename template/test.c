@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-TEST(cpmpile_test) { 
+TEST(compile_test) { 
 	// Define your tests...
 	ASSERT(1 == 1);
 	return true;
