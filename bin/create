@@ -37,7 +37,6 @@ fi
 DIR="$(dirname "$(realpath "$0")")"
 
 for opt in "${opts[@]}"; do
-	echo $opt
 	case $opt in
 		d)
 		echo "Creating README.md at \"$dirname\""
